@@ -1,8 +1,10 @@
+const API = process.env.REACT_APP_API;
+
 class Auth {
   async login(email, password) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/auth/login",
+        `${API}/api/v1/auth/login`,
         {
           method: "post",
           credentials: "include",
@@ -23,7 +25,7 @@ class Auth {
   async logout() {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/auth/logout",
+        `${API}/api/v1/auth/logout`,
         {
           method: "get",
           credentials: "include"
@@ -42,7 +44,7 @@ class Auth {
   async signup(name, email, password, role) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/auth/register",
+        `${API}/api/v1/auth/register`,
         {
           method: "post",
           credentials: "include",
@@ -64,7 +66,7 @@ class Auth {
   async getCurrentUser() {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/auth/me",
+        `${API}/api/v1/auth/me`,
         {
           method: "get",
           credentials: "include"

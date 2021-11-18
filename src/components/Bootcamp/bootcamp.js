@@ -1,7 +1,9 @@
+const API = process.env.REACT_APP_API;
+
 class Bootcamp {
   async getAllBootcamps() {
     try {
-      const response = await fetch("https://bootcamp-server.herokuapp.com/api/v1/bootcamps");
+      const response = await fetch(`${API}/api/v1/bootcamps`);
       if (response.status !== 200) {
         return false;
       }
@@ -15,7 +17,7 @@ class Bootcamp {
   async getSingleBootcamp(id) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/bootcamps/" + id);
+        `${API}/api/v1/bootcamps/` + id);
       if (response.status !== 200) {
         throw new Error("Error al conseguir bootcamp");
       } else {
@@ -30,7 +32,7 @@ class Bootcamp {
   async addSingleBootcamp(name, description, address, careers, photo, userId) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/bootcamps/",
+        `${API}/api/v1/bootcamps/`,
         {
           method: 'post',
           credentials: 'include',
@@ -56,7 +58,7 @@ class Bootcamp {
   async deleteBootcamp(id) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/bootcamps/" + id,
+        `${API}/api/v1/bootcamps/` + id,
         {
           method: 'delete',
           credentials: 'include'
@@ -77,7 +79,7 @@ class Bootcamp {
   async updateSingleBootcamp(id, name, description, careers, photo) {
     try {
       const response = await fetch(
-        "https://bootcamp-server.herokuapp.com/api/v1/bootcamps/" + id,
+        `${API}/api/v1/bootcamps/` + id,
         {
           method: 'put',
           credentials: 'include',
